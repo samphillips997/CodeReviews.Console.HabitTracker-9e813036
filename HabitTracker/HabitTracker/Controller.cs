@@ -14,9 +14,14 @@ internal class Controller
     };
     
 
-    internal void TrackHabit(string name, DateTime date, int quantity)
+    internal void TrackHabit()
     {
-        Habits.Add(new Habit(name, date, quantity));
+        Habit h = new();
+        
+        AddToHabits(h);
+        Console.WriteLine($"Habit added:\n\t{h}");
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
     }
     
     internal void PrintHabits()
@@ -24,10 +29,15 @@ internal class Controller
         Console.Clear();
         foreach (Habit h in Habits)
         {
-            Console.WriteLine($"{h.Date}: {h.Quantity} {h.Name}");
+            Console.WriteLine(h);
         }
         
         Console.WriteLine("Press any key to continue...");
         Console.ReadKey();
+    }
+
+    internal void AddToHabits(Habit habit)
+    {
+        Habits.Add(habit);
     }
 }

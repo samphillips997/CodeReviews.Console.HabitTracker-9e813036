@@ -15,6 +15,7 @@ internal class Menu
             switch (userInput)
             {
                 case 1:
+                    controller.TrackHabit();
                     break;
                 case 2:
                     controller.PrintHabits();

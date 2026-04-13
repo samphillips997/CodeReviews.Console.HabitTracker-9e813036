@@ -13,4 +13,24 @@ internal class Habit
         Name = name;
     }
 
+    internal Habit()
+    {
+        Console.Clear();
+        Console.Write("Enter Habit name: ");
+        Name = Console.ReadLine();
+        
+        Console.Clear();
+        Console.Write("Enter quantity: ");
+        Quantity = int.Parse(Console.ReadLine());
+        
+        Console.Clear();
+        Console.Write("Enter date: ");
+        Date = DateTime.Parse(Console.ReadLine());
+    }
+
+    public override string ToString()
+    {
+        return $"{Date}: {Quantity} {Name}";
+    }
+
 }

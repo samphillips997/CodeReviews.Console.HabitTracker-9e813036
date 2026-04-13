@@ -1,5 +1,7 @@
 namespace HabitTracker;
 
+using Models;
+
 public class Helpers
 {
     internal static int ValidateUserInputMenu(int lower, int upper)
