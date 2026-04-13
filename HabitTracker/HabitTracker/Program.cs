@@ -1,3 +1,3 @@
 ﻿using HabitTracker;
 
-Menu.ShowMainMenu();
+Menu.MainMenu();
