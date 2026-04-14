@@ -4,7 +4,7 @@ using Models;
 
 public class Helpers
 {
-    internal static int ValidateUserInputMenu(int lower, int upper)
+    internal static int GetValidNumber(int lower, int upper)
     {
         int userInput = 0;
         bool success = int.TryParse(Console.ReadLine(), out userInput);
@@ -13,9 +13,7 @@ public class Helpers
         {
             do
             {
-                Console.Clear();
-                Console.WriteLine("Please enter a valid option");
-                ShowMainMenu();
+                Console.WriteLine($"Please enter a valid number between  {lower} and {upper}");
                 
                 // check if valid int and within bounds
                 success = int.TryParse(Console.ReadLine(), out userInput) && (userInput >= lower && userInput <= upper);
@@ -39,4 +37,7 @@ public class Helpers
         Console.WriteLine("4. Delete recent water intake");
         Console.WriteLine("5. Exit");
     }
+    
+    
+    
 }

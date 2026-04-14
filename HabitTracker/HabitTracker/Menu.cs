@@ -10,7 +10,7 @@ internal class Menu
         {
             Console.Clear();
             Helpers.ShowMainMenu();
-            int userInput = Helpers.ValidateUserInputMenu(1, 5);
+            int userInput = Helpers.GetValidNumber(1, 5);
             
             switch (userInput)
             {
@@ -18,11 +18,14 @@ internal class Menu
                     controller.TrackHabit();
                     break;
                 case 2:
+                    Console.Clear();
                     controller.PrintHabits();
                     break;
                 case 3:
+                    controller.UpdateHabit();
                     break;
                 case 4:
+                    controller.DeleteHabit();
                     break;
                 case 5:
                     return;

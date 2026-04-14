@@ -26,10 +26,10 @@ internal class Controller
     
     internal void PrintHabits()
     {
-        Console.Clear();
-        foreach (Habit h in Habits)
+
+        for (int i = 0; i < Habits.Count; i++)
         {
-            Console.WriteLine(h);
+            Console.WriteLine($"{i + 1}. {Habits[i]}");
         }
         
         Console.WriteLine("Press any key to continue...");
@@ -39,5 +39,50 @@ internal class Controller
     internal void AddToHabits(Habit habit)
     {
         Habits.Add(habit);
+    }
+
+    internal void DeleteHabit()
+    {
+        Console.Clear();
+        
+        Console.WriteLine("Which habit do you want to update?");
+        PrintHabits();
+        Console.Write($"Please enter an which habit you want to delete (1 - {Habits.Count}): ");
+        
+        int indexToDelete = Helpers.GetValidNumber(1, Habits.Count);
+        indexToDelete--;
+        
+        Habits.RemoveAt(indexToDelete);
+        
+        Console.Clear();
+        Console.WriteLine($"Habit {++indexToDelete} deleted\n");
+        Console.WriteLine("All habits:");
+        PrintHabits();
+    }
+
+    internal void UpdateHabit()
+    {
+        Console.Clear();
+        
+        Console.WriteLine("Which habit do you want to update?");
+        PrintHabits();
+        Console.Write($"Please enter an which habit you want to update (1 - {Habits.Count}): ");
+        
+        int indexToUpdate = Helpers.GetValidNumber(1, Habits.Count);
+
+        // Convert to 0 based index
+        indexToUpdate--;
+        
+        Habit h = new();
+        
+        Habits[indexToUpdate].Name = h.Name;
+        Habits[indexToUpdate].Date = h.Date;
+        Habits[indexToUpdate].Quantity = h.Quantity;
+        
+        Console.Clear();
+        Console.WriteLine($"Habit {++indexToUpdate} updated: {h}\n");
+        Console.WriteLine("All habits:");
+        PrintHabits();
+        
     }
 }
