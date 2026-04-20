@@ -25,7 +25,7 @@ internal class Habit
         
         Console.Clear();
         Console.Write("Enter date: ");
-        Date = DateTime.Parse(Console.ReadLine());
+        Date = Helpers.ParseDate(Console.ReadLine());
     }
 
     public override string ToString()

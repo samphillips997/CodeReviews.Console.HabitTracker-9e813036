@@ -37,7 +37,23 @@ public class Helpers
         Console.WriteLine("4. Delete recent water intake");
         Console.WriteLine("5. Exit");
     }
-    
-    
+
+    internal static DateTime ParseDate(string date)
+    {
+        DateTime parsedDate;
+        bool success = DateTime.TryParse(date, out parsedDate);
+
+        if (!success)
+        {
+            do
+            {
+                Console.WriteLine("Please enter a valid date (MM/DD/YYYY)");
+                string inputDate = Console.ReadLine();
+                success = DateTime.TryParse(inputDate, out parsedDate);
+            } while (!success);
+        }
+        
+        return parsedDate;
+    }
     
 }
